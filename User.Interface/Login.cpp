@@ -1,23 +1,31 @@
-#include "Login.h"
+﻿#include "Login.h"
 
 std::unique_ptr<HostPort> EnteringPortHost()
 {
-    int invalidPort = 0;
     std::unique_ptr<HostPort> data(new HostPort);
-
-    data->port = invalidPort;
-    do {
-        std::cout << "Enter Port: ";
-        std::cin >> data->port;
-        std::cin.ignore('\n', 1000);
-
-    } while (data->port == invalidPort);
 
     do {
         std::cout << "Enter host: ";
         std::getline(std::cin, data->host);
 
     } while (data->host.empty());
+
+    int invalidPort = 0;
+    std::string buffer = "";
+
+    data->port = invalidPort;
+   
+    while (true) {
+        std::cout << "Enter Port: ";
+
+        std::getline(std::cin, buffer);
+
+        std::stringstream myStream(buffer);
+        if ((myStream >> data->port))
+            break;
+        std::cout << "Invalid input, please try again..." << std::endl;
+    } 
+    std::cin.clear();
 
     return std::move(data);
 }
@@ -41,7 +49,6 @@ std::unique_ptr<LoginPassword> EnteringLoginPass()
     return std::move(data);
 }
 
-
 Login::Login() : m_host(""), m_port(NULL), m_login(""), m_password("")
 {
 }
@@ -49,7 +56,7 @@ Login::Login() : m_host(""), m_port(NULL), m_login(""), m_password("")
 void Login::Start()
 {
     SetHostPort(EnteringPortHost());
-
+    std::cout << "Connect to server is Ok...." << std::endl;
 
     SetLoginPassword(EnteringLoginPass());
 }
@@ -65,7 +72,7 @@ void Login::SetHostPort(std::unique_ptr<HostPort> data)
 void Login::SetLoginPassword(std::unique_ptr<LoginPassword> data)
 {
     if (data != nullptr) {
-        m_host = data->login;
+        m_login = data->login;
         m_password = data->password;
     }
 }

@@ -1,7 +1,9 @@
 #pragma once
+#include "IFacade.h"
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 struct HostPort;
 struct LoginPassword;
@@ -26,6 +28,7 @@ class Login
 public:
     Login();
     void Start();
+
 
 protected:
     void SetHostPort(std::unique_ptr<HostPort> data);
