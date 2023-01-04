@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="OutputDatabase.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OutputDatabase.h" />
     <ClInclude Include="IFacade.h" />
     <ClInclude Include="Login.h" />
   </ItemGroup>

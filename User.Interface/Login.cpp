@@ -10,11 +10,7 @@ std::unique_ptr<HostPort> EnteringPortHost()
 
     } while (data->host.empty());
 
-    int invalidPort = 0;
     std::string buffer = "";
-
-    data->port = invalidPort;
-   
     while (true) {
         std::cout << "Enter Port: ";
 
