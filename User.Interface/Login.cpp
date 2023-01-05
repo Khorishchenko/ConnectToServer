@@ -51,24 +51,37 @@ Login::Login() : m_host(""), m_port(NULL), m_login(""), m_password("")
 
 void Login::Start()
 {
-    SetHostPort(EnteringPortHost());
-    std::cout << "Connect to server is Ok...." << std::endl;
+    try
+    {
+        SetHostPort(EnteringPortHost());
+        std::cout << "Connect to server is Ok...." << std::endl;
 
-    SetLoginPassword(EnteringLoginPass());
+        SetLoginPassword(EnteringLoginPass());
+    }
+    catch (const std::exception& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
 }
 
-void Login::SetHostPort(std::unique_ptr<HostPort> data)
+void Login::SetHostPort(std::unique_ptr<HostPort> data = nullptr)
 {
     if (data != nullptr) {
         m_host = data->host;
         m_port = data->port;
     }
+    else {
+        throw std::runtime_error("Error invalid value host/port");
+    }
 }
 
-void Login::SetLoginPassword(std::unique_ptr<LoginPassword> data)
+void Login::SetLoginPassword(std::unique_ptr<LoginPassword> data = nullptr)
 {
     if (data != nullptr) {
         m_login = data->login;
         m_password = data->password;
+    }
+    else {
+        throw std::runtime_error("Error invalid value login/password");
     }
 }

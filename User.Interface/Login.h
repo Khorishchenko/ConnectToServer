@@ -23,7 +23,7 @@ struct LoginPassword
     std::string password;
 };
 
-class Login
+class Login : public std::exception
 {
 public:
     Login();
