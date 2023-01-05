@@ -41,5 +41,3 @@ private:
     std::string m_login;
     std::string m_password;
 };
-
-
