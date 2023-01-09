@@ -1,15 +1,5 @@
 #pragma once
 #include "IFacade.h"
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <sstream>
-
-struct HostPort;
-struct LoginPassword;
-
-std::unique_ptr<HostPort> EnteringPortHost();
-std::unique_ptr<LoginPassword> EnteringLoginPass();
 
 struct HostPort
 {
@@ -23,17 +13,15 @@ struct LoginPassword
     std::string password;
 };
 
-class Login : public std::exception
+class Login : public std::exception, public IFacade
 {
 public:
     Login();
-    void Start();
 
+    void SetHostPort(std::unique_ptr<HostPort> data = nullptr) override;
+    void SetLoginPassword(std::unique_ptr<LoginPassword> data = nullptr) override;
 
-protected:
-    void SetHostPort(std::unique_ptr<HostPort> data);
-    void SetLoginPassword(std::unique_ptr<LoginPassword> data);
-
+    ~Login() {}
 
 private:
     std::string m_host;

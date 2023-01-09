@@ -1,20 +1,72 @@
 #include <iostream>
+#include "IFacade.h"
 #include "Login.h"
 #include "IConnect.h"
 
+std::unique_ptr<HostPort> EnteringPortHost();
+std::unique_ptr<LoginPassword> EnteringLoginPass();
+
 int main()
 {
-    std::unique_ptr<Login> startApp(new Login());
-    startApp->Start();
+    std::unique_ptr<IFacade> facade(new Login());
+    
+    try
+    {
+        facade->SetHostPort(EnteringPortHost());
+        std::cout << "Connect to server is Ok...." << std::endl;
+
+        facade->SetLoginPassword(EnteringLoginPass());
+    }
+    catch (const std::exception& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+std::unique_ptr<HostPort> EnteringPortHost()
+{
+    std::unique_ptr<HostPort> data(new HostPort);
+
+    do {
+        std::cout << "Enter host: ";
+        std::getline(std::cin, data->host);
+
+    } while (data->host.empty());
+
+    std::string buffer = "";
+    while (true) {
+        std::cout << "Enter Port: ";
+
+        std::getline(std::cin, buffer);
+
+        std::stringstream myStream(buffer);
+        if ((myStream >> data->port))
+            break;
+        std::cout << "Invalid input, please try again..." << std::endl;
+    }
+    std::cin.clear();
+
+    return std::move(data);
+}
+
+std::unique_ptr<LoginPassword> EnteringLoginPass()
+{
+    std::unique_ptr<LoginPassword> data(new LoginPassword);
+
+    do {
+        std::cout << "Enter login: ";
+        std::getline(std::cin, data->login);
+
+    } while (data->login.empty());
+
+    do {
+        std::cout << "Enter password: ";
+        std::getline(std::cin, data->password);
+
+    } while (data->password.empty());
+
+    return std::move(data);
+}
