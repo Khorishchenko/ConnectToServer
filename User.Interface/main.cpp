@@ -1,5 +1,4 @@
 #include <iostream>
-#include "IFacade.h"
 #include "Login.h"
 #include "IConnect.h"
 
@@ -8,7 +7,7 @@ std::unique_ptr<LoginPassword> EnteringLoginPass();
 
 int main()
 {
-    std::unique_ptr<IFacade> facade(new Login());
+    std::unique_ptr<Login> facade(new Login());
     
     try
     {
