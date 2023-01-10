@@ -1,15 +1,8 @@
 #pragma once
-#include "IFacade.h"
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <sstream>
-
-struct HostPort;
-struct LoginPassword;
-
-std::unique_ptr<HostPort> EnteringPortHost();
-std::unique_ptr<LoginPassword> EnteringLoginPass();
 
 struct HostPort
 {
@@ -27,13 +20,11 @@ class Login : public std::exception
 {
 public:
     Login();
-    void Start();
 
+    void SetHostPort(std::unique_ptr<HostPort> data = nullptr);
+    void SetLoginPassword(std::unique_ptr<LoginPassword> data = nullptr);
 
-protected:
-    void SetHostPort(std::unique_ptr<HostPort> data);
-    void SetLoginPassword(std::unique_ptr<LoginPassword> data);
-
+    ~Login() {}
 
 private:
     std::string m_host;
@@ -41,5 +32,3 @@ private:
     std::string m_login;
     std::string m_password;
 };
-
-
