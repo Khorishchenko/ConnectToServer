@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Login.h"
-#include "IConnect.h"
+#include "Socket.h"
 
 std::unique_ptr<HostPort> EnteringPortHost();
 std::unique_ptr<LoginPassword> EnteringLoginPass();
