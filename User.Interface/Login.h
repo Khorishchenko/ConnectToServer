@@ -23,6 +23,10 @@ public:
 
     void SetHostPort(std::unique_ptr<HostPort> data = nullptr);
     void SetLoginPassword(std::unique_ptr<LoginPassword> data = nullptr);
+    uint16_t GetPort() const;
+    std::string GetHost() const;
+    std::string GetPassword() const;
+    std::string GetLogin() const;
 
     ~Login() {}
 

@@ -1,11 +1,9 @@
 #pragma once
-#include <iostream>
-#include <fstream>
-#include "WinSock2.h"
+#include "pch.h"
 
 const int STRLEN = 256;
 
-class Socket
+class Socket 
 {
 public:
     Socket();
@@ -14,7 +12,7 @@ public:
     bool SendData(const char*);
     bool RecvData(char*, int);
     void CloseConnection();
-    void GetAndSendMessage();
+    void GetAndSendMessage(std::string message);
     bool ReceiveFile(std::string filename);
 
 protected:

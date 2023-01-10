@@ -65,14 +65,9 @@ void Socket::CloseConnection()
     m_socket = m_backup;
 }
 
-void Socket::GetAndSendMessage()
+void Socket::GetAndSendMessage(std::string message)
 {
-    char message[STRLEN];
-
-    std::cin.ignore();
-    std::cout << "Send > ";
-    std::cin.get(message, STRLEN);
-    SendData(message);
+    SendData(message.c_str());
 }
 
 bool Socket::ReceiveFile(std::string fileName)
@@ -154,7 +149,7 @@ void ServerSocket::Bind(int port)
     m_address.sin_addr.s_addr = inet_addr("0.0.0.0");
     m_address.sin_port = htons(port);
 
-    //cout<<"BIND TO PORT "<<port<<endl;
+    // std::cout << "BIND TO PORT " << port << std::endl;
 
     if (bind(m_socket, (SOCKADDR*)&m_address, sizeof(m_address)) == SOCKET_ERROR)
     {
@@ -171,7 +166,7 @@ void ClientSocket::ConnectToServer(const char* ipAddress, int port)
     m_address.sin_addr.s_addr = inet_addr(ipAddress);
     m_address.sin_port = htons(port);
 
-    //cout<<"CONNECTED"<<endl;
+    // std::cout << "CONNECTED..." << std::endl;
 
     if (connect(m_socket, (SOCKADDR*)&m_address, sizeof(m_address)) == SOCKET_ERROR)
     {

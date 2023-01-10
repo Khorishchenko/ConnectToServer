@@ -7,7 +7,14 @@
 #ifndef PCH_H
 #define PCH_H
 
+#include <iostream>
+#include <fstream>
+#include <arpa/inet.h>
+#include "WinSock2.h"
+
 // add headers that you want to pre-compile here
 #include "framework.h"
+#include "ISocket.h"
+#include "Socket.h"
 
 #endif //PCH_H

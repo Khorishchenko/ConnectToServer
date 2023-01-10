@@ -25,3 +25,23 @@ void Login::SetLoginPassword(std::unique_ptr<LoginPassword> data)
         throw std::runtime_error("Error invalid value login/password");
     }
 }
+
+uint16_t Login::GetPort() const
+{
+    return m_port;
+}
+
+std::string Login::GetHost() const
+{
+    return m_host;
+}
+
+std::string Login::GetPassword() const
+{
+    return m_password;
+}
+
+std::string Login::GetLogin() const
+{
+    return m_login;
+}
