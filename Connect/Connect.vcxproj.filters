@@ -21,15 +21,15 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IConnect.h">
+    <ClInclude Include="ISocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Connect.h">
+    <ClInclude Include="Socket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Connect.cpp">
+    <ClCompile Include="Socket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">

@@ -80,10 +80,9 @@ bool Socket::ReceiveFile(std::string fileName)
     char recMessage[STRLEN];
  
     SendData(fileName.c_str());
-
     RecvData(recMessage, STRLEN);
-    std::string temp = recMessage;
 
+    std::string temp = recMessage;
     if (temp == "fail") 
     {
         std::cerr << "\tFile does not exist" << std::endl;
