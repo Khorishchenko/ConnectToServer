@@ -1,4 +1,4 @@
-﻿#include "Login.h"
+#include "Login.h"
 
 Login::Login() : m_host(""), m_port(NULL), m_login(""), m_password("")
 {

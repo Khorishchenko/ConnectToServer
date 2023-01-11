@@ -2,6 +2,7 @@
 #include "Login.h"
 #include "pch.h"
 
+
 std::unique_ptr<HostPort> EnteringPortHost();
 std::unique_ptr<LoginPassword> EnteringLoginPass();
 void AuthenticationRequest(ClientSocket& sock);
@@ -9,10 +10,11 @@ void AuthenticationRequest(ClientSocket& sock);
 int main()
 {
     std::unique_ptr<Login> facade(new Login());
+    Socket obj;
     ClientSocket sockClient;
 
     char recMessage[STRLEN];
-   
+
 
     //Client
     std::cout << "Enter an IP address and port of server: " << std::endl;
@@ -40,7 +42,7 @@ int main()
 
         //Recieve message from server (authentication request)
         AuthenticationRequest(sockClient);
-        
+
     }
     catch (const std::exception& ex)
     {

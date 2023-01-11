@@ -6,14 +6,14 @@
 
 struct HostPort
 {
-    std::string host;
-    uint16_t    port;
+    std::string host = "";
+    uint16_t    port = 0;
 };
 
 struct LoginPassword
 {
-    std::string login;
-    std::string password;
+    std::string login = "";
+    std::string password = "";
 };
 
 class Login : public std::exception
@@ -36,3 +36,4 @@ private:
     std::string m_login;
     std::string m_password;
 };
+
