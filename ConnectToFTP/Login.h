@@ -20,15 +20,14 @@ class Login : public std::exception
 {
 public:
     Login();
+    ~Login();
 
     void SetHostPort(std::unique_ptr<HostPort> data = nullptr);
     void SetLoginPassword(std::unique_ptr<LoginPassword> data = nullptr);
-    uint16_t GetPort() const;
+    uint16_t    GetPort() const;
     std::string GetHost() const;
     std::string GetPassword() const;
     std::string GetLogin() const;
-
-    ~Login() {}
 
 private:
     std::string m_host;

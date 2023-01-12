@@ -4,6 +4,10 @@ Login::Login() : m_host(""), m_port(NULL), m_login(""), m_password("")
 {
 }
 
+Login::~Login()
+{
+}
+
 void Login::SetHostPort(std::unique_ptr<HostPort> data)
 {
     if (data != nullptr) {

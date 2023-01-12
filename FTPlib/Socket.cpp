@@ -53,8 +53,7 @@ bool Socket::SendData(const char* buffer)
 
 bool Socket::RecvData(char* buffer, int size)
 {
-    int i = recv(m_socket, buffer, size, 0);
-    buffer[i] = '\0';
+    int i = recv(m_socket, buffer, MSG_SZ, MSG_WAITALL);
     return true;
 }
 
