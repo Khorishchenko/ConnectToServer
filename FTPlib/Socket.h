@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 const int STRLEN = 256;
+#define MSG_SZ 64
 
 class Socket 
 {
