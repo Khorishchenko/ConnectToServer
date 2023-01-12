@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32930.78
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Connect", "Connect\Connect.vcxproj", "{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTPlib", "FTPlib\FTPlib.vcxproj", "{2E53B762-14B0-4D0F-BFE7-5222458726A7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerminalCommand", "TerminalCommand\TerminalCommand.vcxproj", "{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConnectToFTP", "ConnectToFTP\TerminalCommand.vcxproj", "{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Debug|x64.ActiveCfg = Debug|x64
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Debug|x64.Build.0 = Debug|x64
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Debug|x86.ActiveCfg = Debug|Win32
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Debug|x86.Build.0 = Debug|Win32
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Release|x64.ActiveCfg = Release|x64
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Release|x64.Build.0 = Release|x64
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Release|x86.ActiveCfg = Release|Win32
-		{3C8FD6D3-D21D-45BC-8359-5DE166EF622E}.Release|x86.Build.0 = Release|Win32
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Debug|x64.ActiveCfg = Debug|x64
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Debug|x64.Build.0 = Debug|x64
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Debug|x86.Build.0 = Debug|Win32
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Release|x64.ActiveCfg = Release|x64
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Release|x64.Build.0 = Release|x64
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Release|x86.ActiveCfg = Release|Win32
+		{2E53B762-14B0-4D0F-BFE7-5222458726A7}.Release|x86.Build.0 = Release|Win32
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Debug|x64.ActiveCfg = Debug|x64
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Debug|x64.Build.0 = Debug|x64
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Debug|x86.ActiveCfg = Debug|Win32

@@ -2,47 +2,41 @@
 #include "Login.h"
 #include "pch.h"
 
-
 std::unique_ptr<HostPort> EnteringPortHost();
 std::unique_ptr<LoginPassword> EnteringLoginPass();
-void AuthenticationRequest(ClientSocket& sock);
+void ReceiveAndHandelMassege(ClientSocket& sock);
 
 int main()
 {
-    std::unique_ptr<Login> facade(new Login());
-    Socket obj;
-    ClientSocket sockClient;
+    Login           login;
+    ClientSocket    sockClient;
+    char            recMessage[STRLEN];
 
-    char recMessage[STRLEN];
-
-
-    //Client
-    std::cout << "Enter an IP address and port of server: " << std::endl;
     try
     {
-        facade->SetHostPort(EnteringPortHost());
+        std::cout << "Enter an IP address and port of server: " << std::endl;
+        login.SetHostPort(EnteringPortHost());
+
         std::cout << "ATTEMPTING TO CONNECT..." << std::endl << std::endl;
-        sockClient.ConnectToServer(facade->GetHost().c_str(), facade->GetPort());
+        sockClient.ConnectToServer(login.GetHost().c_str(), login.GetPort());
 
         //Recieve message from server (authentication request)
-        AuthenticationRequest(sockClient);
-
+        ReceiveAndHandelMassege(sockClient);
 
         std::cout << "Enter an Login and password of server: " << std::endl;
-        facade->SetLoginPassword(EnteringLoginPass());
+        login.SetLoginPassword(EnteringLoginPass());
 
         //send request to server (login)
-        sockClient.GetAndSendMessage(facade->GetLogin());
+        sockClient.GetAndSendMessage(login.GetLogin());
 
         //Recieve message from server (authentication request)
-        AuthenticationRequest(sockClient);
+        ReceiveAndHandelMassege(sockClient);
 
         //send request to server (password)
-        sockClient.GetAndSendMessage(facade->GetPassword());
+        sockClient.GetAndSendMessage(login.GetPassword());
 
         //Recieve message from server (authentication request)
-        AuthenticationRequest(sockClient);
-
+        ReceiveAndHandelMassege(sockClient);
     }
     catch (const std::exception& ex)
     {
@@ -50,10 +44,9 @@ int main()
         return -1;
     }
 
-    std::string command;
     while (true) {
 
-        AuthenticationRequest(sockClient);
+        ReceiveAndHandelMassege(sockClient);
 
         std::string command;
         std::cout << "Please enter the command: ";
@@ -132,17 +125,17 @@ std::unique_ptr<LoginPassword> EnteringLoginPass()
     return std::move(data);
 }
 
-void AuthenticationRequest(ClientSocket& socket)
+void ReceiveAndHandelMassege(ClientSocket& socket)
 {
     char recMessage[STRLEN];
     socket.RecvData(recMessage, STRLEN);
-    std::cout << recMessage;
 
     std::string temp = recMessage;
-
     if (temp == "\t***INVALID CREDENTIALS****\nDISCONNECTING")
     {
         socket.CloseConnection();
         throw std::runtime_error("\t***INVALID CREDENTIALS****\nDISCONNECTING");
     }
+
+    std::cout << recMessage;
 }
