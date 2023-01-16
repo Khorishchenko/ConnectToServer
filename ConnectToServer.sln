@@ -6,6 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTPlib", "FTPlib\FTPlib.vcxproj", "{2E53B762-14B0-4D0F-BFE7-5222458726A7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConnectToFTP", "ConnectToFTP\TerminalCommand.vcxproj", "{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B} = {1AE08B93-2127-49C2-BE82-F29D7B2F153B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetCommon", "NetCommon\NetCommon.vcxproj", "{1AE08B93-2127-49C2-BE82-F29D7B2F153B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetClient", "NetClient\NetClient.vcxproj", "{594DD91D-C532-4522-A836-33A25A90737D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B} = {1AE08B93-2127-49C2-BE82-F29D7B2F153B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +41,22 @@ Global
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Release|x64.Build.0 = Release|x64
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Release|x86.ActiveCfg = Release|Win32
 		{D50C6156-3389-4C26-8AB3-EB7FD33F0F4F}.Release|x86.Build.0 = Release|Win32
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Debug|x64.ActiveCfg = Debug|x64
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Debug|x64.Build.0 = Debug|x64
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Debug|x86.ActiveCfg = Debug|Win32
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Debug|x86.Build.0 = Debug|Win32
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Release|x64.ActiveCfg = Release|x64
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Release|x64.Build.0 = Release|x64
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Release|x86.ActiveCfg = Release|Win32
+		{1AE08B93-2127-49C2-BE82-F29D7B2F153B}.Release|x86.Build.0 = Release|Win32
+		{594DD91D-C532-4522-A836-33A25A90737D}.Debug|x64.ActiveCfg = Debug|x64
+		{594DD91D-C532-4522-A836-33A25A90737D}.Debug|x64.Build.0 = Debug|x64
+		{594DD91D-C532-4522-A836-33A25A90737D}.Debug|x86.ActiveCfg = Debug|Win32
+		{594DD91D-C532-4522-A836-33A25A90737D}.Debug|x86.Build.0 = Debug|Win32
+		{594DD91D-C532-4522-A836-33A25A90737D}.Release|x64.ActiveCfg = Release|x64
+		{594DD91D-C532-4522-A836-33A25A90737D}.Release|x64.Build.0 = Release|x64
+		{594DD91D-C532-4522-A836-33A25A90737D}.Release|x86.ActiveCfg = Release|Win32
+		{594DD91D-C532-4522-A836-33A25A90737D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
