@@ -25,7 +25,7 @@ void GrabSomeData(asio::ip::tcp::socket& socket) {
         {
             if (!ec)
             {
-                std::cout << "\n\n Read " << lenght << "bytes \n\n";
+                std::cout << "\n\n Read " << lenght << " bytes \n\n";
 
                 for (int i = 0; i < lenght; i++)
                     std::cout << vBuffer[i];
@@ -60,19 +60,24 @@ int main()
         std::cout << " Failed to connect " << ec.message() << std::endl;
     }
 
-    if (socket.is_open()) 
+    if (socket.is_open())
     {
         GrabSomeData(socket);
 
         std::string sRequest =
-            "GET /index.html HTTPS/1.1/\r\n"
-            "Host: AprioritLLC\r\n"
-            "Connection: close\r\n\r\n";
+            "login: s.\r\n"
+            "password: !\r\n\r\n";
 
         socket.write_some(asio::buffer(sRequest.data(), sRequest.size()), ec);
 
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(2000ms);
+
+        std::string answRequest = "";
+        socket.read_some(asio::buffer(answRequest.data(), answRequest.size()), ec);
+
+        std::cout << answRequest << std::endl;
+
     }
 
     system("pause");

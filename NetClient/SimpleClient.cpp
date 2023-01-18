@@ -1,6 +1,7 @@
 #include <iostream>
 #include "olc_net.h"
 
+
 enum class CustomMsgTypes : uint32_t
 {
 	ServerAccept,
@@ -9,6 +10,8 @@ enum class CustomMsgTypes : uint32_t
 	MessageAll,
 	ServerMessage,
 };
+
+
 
 int main() {
 
